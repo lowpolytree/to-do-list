@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.square-button {
+  /*width: 40px;
+  height: 40px;*/
+  background-color: #FAEBD7;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square-button:hover {
+  background-color: #0056b3;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center; /* Vertically center the text and button */
+  justify-content: flex-start; /* Left-align the text and button */
+  width: 100%; /* Make sure the task container takes up the full width */
+  max-width: 300px; /* Optional: Limit the width of each task item */
+  margin-bottom: 5px;
+  background-color: #f9f9f9; /* Optional: Add background for visibility */
+ /* padding: 10px;*/ /* Optional: Add padding */
+  border-radius: 5px; /* Optional: Rounded corners */
+}
+
+.task-text {
+  padding-right: 10px; /* Space between text and button */
+}
+
+.todo-list-container {
+  display: flex;
+  flex-direction: column; /* Align tasks vertically */
+  align-items: center; /* Center the entire list */
+}
