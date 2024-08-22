@@ -51,3 +51,8 @@ code {
   flex-direction: column; /* Align tasks vertically */
   align-items: center; /* Center the entire list */
 }
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}

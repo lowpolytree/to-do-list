@@ -16,11 +16,16 @@ function App() {
     setTasks(updatedTasks);
   }
 
+  const toggleCompletion = (id) => {
+    const updatedTasks = tasks.map( task => task.id === id ? {...task, completed: !task.completed} : task);
+    setTasks(updatedTasks);
+  }
+
   return (
     <div className="App">
       <h1>To-Do List</h1>
       <ToDoForm addTask={addTask} />
-      <ToDoList tasks={tasks} deleteTask={deleteTask}/>
+      <ToDoList tasks={tasks} deleteTask={deleteTask} toggleCompletion={toggleCompletion}/>
     </div>
   );
 }

@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function DeleteButton({label, onClick}){
   return (
-    <button className="square-button" onClick={onClick}> {label}
-    </button>
+    <button className="square-button" onClick={onClick}> {label} </button>
   );
 }
 
-function ToDoItem({task, deleteTask}){
+function CompletionCheckbox({ isChecked, onChange}){
+  return (
+    <input type="checkbox" checked={isChecked} onChange={onChange} />
+  );
+}
+
+function ToDoItem({task, deleteTask, toggleCompletion}){
 
   return(
     <div className="todo-item" key={task.id}>
+      <CompletionCheckbox isChecked={task.completed} onChange={()=>toggleCompletion(task.id)} />
       <DeleteButton label="x" onClick={() => deleteTask(task.id)} />
-      <span className="task-text">{task.text}</span>
+      <span className={`task-text ${task.completed ? 'completed' : ''}`}>{task.text}</span>
   </div>
     );
 }
