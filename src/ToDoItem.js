@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
-function DeleteButton({label, onClick}){
+/*function DeleteButton({label, onClick}){
   return (
     <button className="square-button" onClick={onClick}> {label} </button>
   );
-}
+}*/
 
 function CompletionCheckbox({ isChecked, onChange}){
   return (
@@ -12,14 +12,13 @@ function CompletionCheckbox({ isChecked, onChange}){
   );
 }
 
-function ToDoItem({task, deleteTask, toggleCompletion}){
+function ToDoItem({task, deleteTask, toggleCompletion, onContextMenu}){
 
   return(
-    <div className="todo-item" key={task.id}>
+    <div className="todo-item" key={task.id} onContextMenu={onContextMenu} >
       <CompletionCheckbox isChecked={task.completed} onChange={()=>toggleCompletion(task.id)} />
-      <DeleteButton label="x" onClick={() => deleteTask(task.id)} />
       <span className={`task-text ${task.completed ? 'completed' : ''}`}>{task.text}</span>
-  </div>
+    </div>
     );
 }
 
