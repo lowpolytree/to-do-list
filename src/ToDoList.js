@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ToDoItem from './ToDoItem';
 
-function ToDoList({tasks, deleteTask, toggleCompletion}){
+function ToDoList({tasks, deleteTask, toggleCompletion, editTask, saveTask}){
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [activeTaskId, setActiveTaskId] = useState(null);
@@ -42,6 +42,8 @@ function ToDoList({tasks, deleteTask, toggleCompletion}){
           deleteTask={deleteTask}
           toggleCompletion={toggleCompletion}
           onContextMenu={(e) => handleContextMenu(e, task.id)}
+          editMode={task.editMode}
+          saveTask={saveTask}
         />
      ))}
 
@@ -51,6 +53,7 @@ function ToDoList({tasks, deleteTask, toggleCompletion}){
         style={{ top: `${menuPosition.y}px`, left: `${menuPosition.x}px`, position: 'absolute' }}
       >
         <li onClick={() => { deleteTask(activeTaskId); handleClickOutside(); }}>Delete</li>
+        <li onClick={() => {editTask(activeTaskId); handleClickOutside();}}>Edit</li>
       </ul>
       
       )}

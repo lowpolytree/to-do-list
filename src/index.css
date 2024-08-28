@@ -71,6 +71,7 @@ code {
 .context-menu li {
   padding: 5px 10px;
   cursor: pointer;
+  text-align: left;
 }
 
 .context-menu li:hover {
