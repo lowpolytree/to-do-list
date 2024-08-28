@@ -13,6 +13,9 @@ function CompletionCheckbox({ isChecked, onChange}){
 }
 
 function ToDoItem({task, deleteTask, toggleCompletion, onContextMenu, editMode, saveTask}){
+  //console.log(task.bgcolor);
+  //console.log(task);
+
   const [newText, setNewText] = useState(task.text);
 
   const handleInputChange = (e) => {
@@ -25,7 +28,11 @@ function ToDoItem({task, deleteTask, toggleCompletion, onContextMenu, editMode, 
   }
 
   return(
-    <div className="todo-item" key={task.id} onContextMenu={onContextMenu} >
+    <div
+      className="todo-item"
+      style={{backgroundColor: task.bgcolor || '#f4f4f4'}}
+      key={task.id}
+      onContextMenu={onContextMenu} >
 
       {editMode ? (
         <input 
